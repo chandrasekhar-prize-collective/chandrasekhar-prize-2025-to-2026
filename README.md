@@ -10,8 +10,11 @@ STL or OBJ only
 ## Notes and information
 Use .txt files for quick note-taking.
 
-## Proper and formal presentations
+## Proper and formal presentations source code
 Use .tex files (LaTeX, it is the best typesetting interface.)
+
+## Proper and formal presentations themselves
+Use .pdf files.
 
 # Organization
 Use folders; there shall be a specific folder for each category. You may create you own subfolders underneath.
