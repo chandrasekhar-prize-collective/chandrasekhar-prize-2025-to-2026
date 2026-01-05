@@ -45,7 +45,8 @@ Theme 3: Intelligent Systems (Robotics, Coding and Machines)
 \section{Problem Statement}
 We want to address the problem of cosmological redshift and blueshift. This is a problem because whilst astronomers can use software to correct for redshift and blueshift (hereon referred to as RSBS), it is annoying to obtain the image and then correct it. Our product aims to be an all-in-one tool; a telescope that colour corrects for RSBS, analyses the images to compare them with images of known, catalogued galaxies; to obtain the distance, obtains the velocity, obtains the redshift \(z\); negative values are blueshift, and positive values are redshift.
 \section{Background Research}
-In our project, we have used the physical concepts of special relativity, Hubble's law, cosmological expansion, redshift and blueshift, and the computer science concept of programming. These shall be applied into the product through programming, i.e., we shall program the computer to account for these effects, such as adjusting for relativity and colour-correcting the images. To demonstrate this, some mathematics follows:\\
+\subsection{Mathematics (wow)}
+In our project, we have used the physical concepts of special relativity, Hubble's law, cosmological expansion, redshift and blueshift, and the computer science concept of programming. These shall be applied into the product through programming, i.e., we shall program the computer to account for these effects, such as adjusting for relativity and colour-correcting the images, using OpenCV, a Python library that is good at editing images through code. To demonstrate this, some mathematics follows:\\
 Converting \(H_0\) to SI units (we do not want to make that mistake again):
 % I hate this jumble of SI and non-SI -_-
 \[ H_0 \approx \SI{69.8}{km s^{-1} Mpc^{-1}} = \frac{69.8 \cdot 10^3}{10^6(3.09 \cdot 10^{16})} \approx \SI{2.23 \cdot 10^{-18}}{s^{-1}} \]
@@ -61,7 +62,15 @@ Finally, we can substitute our own values into the formula:
 \[ z = (1 + \frac{8.92 \cdot 10^7}{3 \cdot 10^8}) \frac{1}{\sqrt{1 - \frac{(8.92 \cdot 10^7)^2}{(3 \cdot 10^8)^2}}} - 1 \approx 0.359\]
 Hence, the observed wavelength is calculated by \(\lambda_{obs} = \lambda_{emit}(1+z)\):
 \[ \lambda_{obs} = (6.2 \cdot 10^{-7})(1 + 0.359) \approx 8.43 \cdot 10^{-7} \text{ m} = \SI{843}{nm} \]
-This shifts the visible red light into the infrared spectrum. Our telescope then reverses this process to reconstruct the original image.
+This shifts the visible red light into the infrared spectrum. Our telescope then reverses this process to reconstruct the original image.\\
+\subsection{Extant solutions}
+Solutions to this that are currently present include:
+\begin{itemize}
+    \item Manual computer processing after image capture
+    \item Manually using formulae to reconstruct image
+\end{itemize}
+The underlying problem is the lack of convenient conversion. If the above calculations were to be carried out through an integrated computer that displayed the image relatively % pun intended
+quickly, it would be easy to obtain a nice view of the observable universe.
 
 \section{Challenges and Fallacious Mathematics}
 \subsection{Forgetting SI unit conversion}
@@ -71,7 +80,7 @@ Because we are dealing with speeds faster than the speed of light, we cannot use
 \[ z = (1 + \frac{v}{c})\gamma - 1. \]
 \(\gamma\), the Lorentz factor, is approximately 1 for all \(v \ll c\), but since this galaxy is receding faster than the speed of light, we must calculate it through:
 \[ \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}. \]
-Now, susbstituting that into the original formula:
+Now, substituting that into the original formula:
 \[ z = (1 + \frac{v}{c}) \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} - 1 \]
 Finally, we can substitute our own values into the formula:
 % THIS IS GOING TO KILL MY CALCULATOR
@@ -80,7 +89,18 @@ Finally, we can substitute our own values into the formula:
 \[ = -1 + 305068.2984i \]
 % UPDATE: IT DID CAUSE A MATH ERROR -_- huh so you cant do complex numbers, eh? EH?
 Interesting, a complex redshift! This is physically impossible, because \(i\) is \textit{imaginary}, but the reason for this error is because we have forgotten to convert \(H_0\) into SI units.
-This was quite funny when we discovered we had complex redshift.
+It was quite funny when we discovered we had complex redshift, because, well, that means the galaxy is outside the Hubble Horizon and pulling the light back with it.
+
+\newpage
+\section*{Works Cited}
+\begin{description}
+
+    \item[] \textbf{Einstein, Albert.} ``On the Electrodynamics of Moving Bodies.'' \textit{Annalen der Physik}, vol. 322, no. 10, 1905, pp. 891--921.
+
+    \item[] \textbf{Hubble, Edwin.} ``A Relation between Distance and Radial Velocity among Extra-Galactic Nebulae.'' \textit{Proceedings of the National Academy of Sciences}, vol. 15, no. 3, 1929, pp. 168--173.
+
+    \item[] \textbf{Planck Collaboration.} ``Planck 2018 Results. VI. Cosmological Parameters.'' \textit{Astronomy \& Astrophysics}, vol. 641, 2020, p. A6.
+\end{description}
 
 
 \end{document}
