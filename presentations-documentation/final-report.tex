@@ -4,9 +4,21 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+% Define \SI{number}{unit}
+\newcommand{\SI}[2]{#1\,\mathrm{#2}}
+
+% Define \si{unit} (old version)
+\newcommand{\si}[1]{\mathrm{#1}}
+
+% Define \qty{number}{unit} (new version, just in case)
+\newcommand{\qty}[2]{#1\,\mathrm{#2}}
+
+% Define \unit{unit} (new version, just in case)
+\newcommand{\unit}[1]{\mathrm{#1}}
+
 \author{Bodapati, Shashank \and Jain, Daksh \and Malhan, Shivansh \and Shokeen, Ahaan}
 \date{2025-12/2026-01}
-\title{Eureka Proposal --- Redshift and Blueshift reduction telescope}
+\title{Eureka Proposal --- Redshift reduction telescope}
 
 \begin{document}
 
@@ -31,6 +43,44 @@ Theme 3: Intelligent Systems (Robotics, Coding and Machines)
 \end{itemize}
 \newpage
 \section{Problem Statement}
+We want to address the problem of cosmological redshift and blueshift. This is a problem because whilst astronomers can use software to correct for redshift and blueshift (hereon referred to as RSBS), it is annoying to obtain the image and then correct it. Our product aims to be an all-in-one tool; a telescope that colour corrects for RSBS, analyses the images to compare them with images of known, catalogued galaxies; to obtain the distance, obtains the velocity, obtains the redshift \(z\); negative values are blueshift, and positive values are redshift.
+\section{Background Research}
+In our project, we have used the physical concepts of special relativity, Hubble's law, cosmological expansion, redshift and blueshift, and the computer science concept of programming. These shall be applied into the product through programming, i.e., we shall program the computer to account for these effects, such as adjusting for relativity and colour-correcting the images. To demonstrate this, some mathematics follows:\\
+Converting \(H_0\) to SI units (we do not want to make that mistake again):
+% I hate this jumble of SI and non-SI -_-
+\[ H_0 \approx \SI{69.8}{km s^{-1} Mpc^{-1}} = \frac{69.8 \cdot 10^3}{10^6(3.09 \cdot 10^{16})} \approx \SI{2.23 \cdot 10^{-18}}{s^{-1}} \]
+Using the formula for a galaxy 40 Ym away with an emitted wavelength of 620 nm:
+\[ v = H_0 \cdot d \Rightarrow v = (2.23 \cdot 10^{-18})(4 \cdot 10^{25}) = \SI{8.92 \cdot 10^7}{m s^{-1}} \]
+Because we are dealing with speeds close to the speed of light, we cannot use the simple Doppler formula \( z = \frac{v}{c} \). Hence, we must use the full relativistic formula:
+\[ z = (1 + \frac{v}{c})\gamma - 1. \]
+\(\gamma\), the Lorentz factor, is approximately 1 for all \(v \ll c\), but since this galaxy is receding at a speed close to the speed of light, we must calculate it through:
+\[ \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}. \]
+Now, substituting that into the original formula:
+\[ z = (1 + \frac{v}{c}) \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} - 1 \]
+Finally, we can substitute our own values into the formula:
+\[ z = (1 + \frac{8.92 \cdot 10^7}{3 \cdot 10^8}) \frac{1}{\sqrt{1 - \frac{(8.92 \cdot 10^7)^2}{(3 \cdot 10^8)^2}}} - 1 \approx 0.359\]
+Hence, the observed wavelength is calculated by \(\lambda_{obs} = \lambda_{emit}(1+z)\):
+\[ \lambda_{obs} = (6.2 \cdot 10^{-7})(1 + 0.359) \approx 8.43 \cdot 10^{-7} \text{ m} = \SI{843}{nm} \]
+This shifts the visible red light into the infrared spectrum. Our telescope then reverses this process to reconstruct the original image.
+
+\section{Challenges and Fallacious Mathematics}
+\subsection{Forgetting SI unit conversion}
+These can be demonstrated through a mathematical example for a galaxy with real wavelength 620 nm and a distance of 400 Pm:
+\[ v = H_0 \cdot d \Rightarrow v \approx 69.8(4 \cdot 10^{17}) = \SI{2.792 \cdot 10^{19}}{m s^{-1}} \]
+Because we are dealing with speeds faster than the speed of light, we cannot use the simple Doppler formula \( z = \frac{v}{c} \). Hence, we must use the full relativistic formula:
+\[ z = (1 + \frac{v}{c})\gamma - 1. \]
+\(\gamma\), the Lorentz factor, is approximately 1 for all \(v \ll c\), but since this galaxy is receding faster than the speed of light, we must calculate it through:
+\[ \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}. \]
+Now, susbstituting that into the original formula:
+\[ z = (1 + \frac{v}{c}) \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} - 1 \]
+Finally, we can substitute our own values into the formula:
+% THIS IS GOING TO KILL MY CALCULATOR
+\[ z = (1 + \frac{2.792 \cdot 10^{19}}{3 \cdot 10^8}) \frac{1}{\sqrt{1 - \frac{(2.792 \cdot 10^{19})^2}{(3 \cdot 10^8)^2}}} - 1 = (9.3067 \cdot 10^{10})\frac{1}{\sqrt{-9.3067 \cdot 10^{10}}} - 1 \]
+\[ = (9.3067 \cdot 10^{10})\frac{1}{305068.2984}i - 1 = \frac{9.3067 \cdot 10^{10}}{305068.2984}i - 1 = 305068.2984i - 1 \]
+\[ = -1 + 305068.2984i \]
+% UPDATE: IT DID CAUSE A MATH ERROR -_- huh so you cant do complex numbers, eh? EH?
+Interesting, a complex redshift! This is physically impossible, because \(i\) is \textit{imaginary}, but the reason for this error is because we have forgotten to convert \(H_0\) into SI units.
+This was quite funny when we discovered we had complex redshift.
 
 
 \end{document}
