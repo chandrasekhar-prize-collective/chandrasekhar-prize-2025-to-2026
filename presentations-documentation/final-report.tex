@@ -19,7 +19,7 @@
 \newcommand{\unit}[1]{\mathrm{#1}}
 
 \author{Shashank Bodapati \and Daksh Jain \and Shivansh Malhan \and Ahaan Shokeen}
-\date{2025-12/2026-01}
+\date{2026-01-06}
 \title{Eureka Proposal --- Redshift reduction telescope}
 \renewcommand{\arraystretch}{1.5}
 
@@ -37,13 +37,13 @@
     Shokeen, Ahaan & 7A & Documenter\\
 \end{tabular}
 \section{Problem Statement}
-We want to address the problem of cosmological redshift and blueshift. This is a problem because whilst astronomers can use software to correct for redshift and blueshift (hereon referred to as RSBS), it is annoying to obtain the image and then correct it. Our product aims to be an all-in-one tool; a telescope that colour corrects for RSBS, analyses the images to compare them with images of known, catalogued galaxies; to obtain the distance, obtains the velocity, obtains the redshift \(z\); negative values are blueshift, and positive values are redshift. This process is carried out through a Raspberry Pi 4, which is a powerful computer that can be programmed through Python.
+We want to address the problem of cosmological redshift and blueshift. This is a problem because whilst astronomers can use software to correct for redshift and blueshift (hereon referred to as RSBS), it is cumbersome to obtain the image and then correct it. Our product aims to be an all-in-one tool; a telescope that colour-corrects for RSBS, analyses the images to compare them with images of known, catalogued galaxies; to obtain the distance, obtains the velocity, obtains the redshift \(z\); negative values are blueshift, and positive values are redshift. This process is carried out through a Raspberry Pi 4, which is a powerful computer that can be programmed through Python.
 \section{Background Research}
 \subsection{Mathematics}
 In our project, we have used the physical concepts of special relativity, Hubble's law, cosmological expansion, redshift and blueshift, and the computer science concept of programming. These shall be applied into the product through programming, i.e., we shall program the computer to account for these effects, such as adjusting for relativity and colour-correcting the images, using OpenCV, a Python library that is good at editing images through code. To demonstrate this, some mathematics follows:\\
 Converting \(H_0\) to SI units (we do not want to make \textit{that} mistake again):
 % I hate this jumble of SI and non-SI -_-
-\[ H_0 \approx \SI{69.8}{km\,s^{-1} Mpc^{-1}} = \frac{69.8 \cdot 10^3}{10^6(3.09 \cdot 10^{16})} \approx \SI{2.23 \cdot 10^{-18}}{s^{-1}} \]
+\[ H_0 \approx \SI{69.8}{km\,s^{-1} Mpc^{-1}} = \frac{69.8 \cdot 10^3}{10^6(3.09 \cdot 10^{16})} = \frac{69.8 \cdot 10^3}{3.09 \cdot 10^{22}} \approx \SI{2.23 \cdot 10^{-18}}{s^{-1}} \]
 % Inverse seconds, which are... hertz? WAIT NO CHANCE WE CAN MEASURE THE HUBBLE CONSTANT IN Hz thats crazy lol
 Using the formula for a galaxy 40 Ym away with an emitted wavelength of 620 nm:
 \[ v = H_0 \cdot d \Rightarrow v = (2.23 \cdot 10^{-18})(4 \cdot 10^{25}) = \SI{8.92 \cdot 10^7}{m\,s^{-1}} \]
@@ -70,7 +70,8 @@ quickly, it would be easy to obtain a nice view of the observable universe.
 
 \section{Design Brief}
 % this is so full of jargon i cant believe i wrote this
-The intended solution is not to eliminate redshift; to be explicit. Eliminating cosmological redshift would involve stopping the expansion of the universe, which is extremely impractical and difficult to perform. The solution is a software-based, built-in colour correction telescope that estimates the recessional velocity of the viewed electromagnetic radiator utilizing a database of catalogued galaxies accessible via the Internet or a manually entered distance. This solution targets astronomers, cosmologists, and hobbyists; although astronomers and cosmologists have other tools for this, a hobbyist may not. The goal is to, as Jain said, ``enhance our \textit{interpretation} of it to the extent that it's not distinct.'' Reiterating the opening statement, we do not intend to eliminate redshift, we intend to colour-correct it.
+The intended solution is not to eliminate redshift; to be explicit. Eliminating cosmological redshift would involve stopping the expansion of the universe, which is extremely impractical and difficult to perform. The solution is a software-based, built-in reconstructing telescope that estimates the recessional velocity of the viewed electromagnetic radiator utilizing a database of catalogued galaxies accessible via the Internet or a manually entered distance. This solution targets astronomers, cosmologists, and hobbyists; although astronomers and cosmologists have other tools for this, a hobbyist may not. This product helps in  The goal is to, as Jain said, ``enhance our \textit{interpretation} of it to the extent that it's not distinct.'' Reiterating the opening statement, we do not intend to eliminate redshift, we intend to colour-correct it.
+
 
 \section{Challenges and Fallacious Mathematics}
 \subsection{Forgetting SI unit conversion}

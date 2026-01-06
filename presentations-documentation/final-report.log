@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.14)  6 JAN 2026 12:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.14)  6 JAN 2026 13:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -431,7 +431,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Overfull \hbox (17.9971pt too wide) in paragraph at lines 100--101
+Overfull \hbox (17.9971pt too wide) in paragraph at lines 101--102
 \OT1/cmtt/m/n/10 datasheets . raspberrypi . com / rpi4 / raspberry-[]pi-[]4-[]product-[]brief . pdf$ 
  []
 
@@ -444,15 +444,15 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 15463 strings out of 474662
- 303522 string characters out of 5751108
- 705671 words of memory out of 5000000
+ 15465 strings out of 474662
+ 303538 string characters out of 5751108
+ 705666 words of memory out of 5000000
  38175 multiletter control sequences out of 15000+600000
- 569998 words of font info for 113 fonts, out of 8000000 for 9000
+ 570106 words of font info for 114 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  102i,6n,107p,1102b,281s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/jagdeepshokeen/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on final-report.pdf (5 pages, 166211 bytes).
+Output written on final-report.pdf (5 pages, 165921 bytes).
 PDF statistics:
  93 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream
