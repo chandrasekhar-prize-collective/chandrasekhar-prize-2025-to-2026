@@ -4,6 +4,8 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{siunitx}
+\usepackage[style=english=british]{csquotes}
+%
 
 \author{Ahaan Shokeen}
 \date{2026--02--12}
@@ -12,10 +14,26 @@
 \begin{document}
 
 \maketitle
-OK SO NOW LETS DO SOME MATHS
+The report has calculated the redshift if a galaxy is \SI{40}{Ym} away to be:
 \[
-    z = (1 + \frac{v}{c})\frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+\lambda_{obs} = \lambda_{emit}(z + 1) = \SI{853}{nm}
 \]
-Example distance of 40 Ym; we know \(H_0 \approx 2.23 \cdot 10^{-18} \SI{s^{-1}}
-
+The received wavelength is in the infrared spectrum, so the researchers cannot use RGB yet, because RGB is for visible light. However, this value is the observed wavelength, after redshift. The original wavelength emitted was 
+% checks report because im stupid
+\SI{620}{nm}. We can use this, because it is what we would also obtain after:
+\begin{align*}
+        \lambda_{obs} &= \lambda_{emit}(z + 1) \\ 
+        \lambda_{emit} &= \frac{\lambda_{obs}}{z + 1}\\
+        \intertext{Substituting values:}
+        \lambda_{emit} &= \frac{853}{1.359}\\
+        \lambda_{emit} &\approx 627.7
+        % OH NO
+        % ehh close enough idc
+\end{align*}
+There appears to be a \SI{7.7}{nm} discrepancy. This is likely because the value for \(z\) was an approximation regardless. Hence, by calculating \(z\), the researchers' program can find the original wavelength. Converting a wavelength of \SI{627.7}{nm} into RGB values, they get:
+\[
+    \text{rgb}(627.7) = [255, 88, 0]
+\]
+Hence, they can apply that RGB value to its corresponding pixel, as that is the original colour.
+% clinically detached, thats what this is lol 
 \end{document}
