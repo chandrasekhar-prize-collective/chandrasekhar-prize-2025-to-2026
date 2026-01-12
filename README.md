@@ -24,3 +24,6 @@ Use .pdf files.
 
 # Guidelines
 For code, use that language's guidelines. For folders and filenames, use `kebab-case`.
+
+# Other
+This repository shall be made public after the competition is over.
