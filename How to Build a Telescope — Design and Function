@@ -1,0 +1,161 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+
+\title{How to Build a Telescope — Design and Function}
+\author{Daksh Jain}
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+
+The concept of a telescope seems fairly simple—however, achieving this in a feasible way becomes challenging. For the purposes of this article, there are two types of telescopes that can be used, one is the Galilean telescope, and the other is the Keplerian. There are two primary lenses needed to build a Galilean telescope, one is a convex lens and the other is a concave lens. The objective lens is a convex lens mounted at the front of the tube,  rays of light from distant objects refract through this lens and focus into a single point. This point is the \textbf{principal focus} and the distance from here to the centre of the lens is called the \textbf{focal length.} The \textbf{aperture} of an objective is how much light it can capture—ideally larger than the naked eye. 
+\\
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{Telescope-stats-8e36fc5.png}
+\end{figure}
+\\
+At the other end of the tube, there is the eyepiece. The eyepiece magnifies the refracted image into the eye. It typically has a much shorter focal length. In order to calculate the magnification we must perform a series of operations. 
+First, measure the focal length of the objective. e.g 400 mm.
+Second, measure the focal length of the eyepiece. e.g 10 mm.
+Finally, using the formula(this works for both types of telescopes): \\
+
+\begin{equation*}
+    \text{Magnification = }\frac{f_{objective}}{f_{eyepiece}}
+\end{equation*}
+
+
+Substituting previous values we yield: \\ 
+
+\begin{equation*}
+\frac{400\text{ } mm}{10\text{ } mm} = 40 \text{ times magnification}
+\end{equation*}
+\\
+
+However, there are numerous disadvantages of a Galilean telescope:  it has a very narrow field of view, the image gets worse at higher magnifications, and it is uncomfortable to use. These culminate to make a Keplerian telescope a better alternative.  \\
+
+The same concepts of a Galilean telescope apply, except that a Keplerian telescope uses two convex lenses as opposed to one convex and one concave. Though the image received is inverted, orientation doesn't really matter in space and time. The tube length for these telescopes is as follows:   \\
+% HAHAHAHAHHAHAH THE CHEEKIEST  IB REFERENCE I MADE
+
+\begin{equation*}
+\text{Tube Length} \approx f_{objective} +  f_{eyepiece}
+\end{equation*} \\ 
+
+Each objective and eyepiece has a specific focal length. To calculate it, the lens-maker formula is used—stating that: \\
+
+\begin{equation*}
+\frac{1}{f} = (n-1)(\frac{1}{R_1}-\frac{1}{R_2})
+\end{equation*} \\ 
+
+$n = \text{Refractive index of glass}$ \\
+$R_1,R_2 = \text{Radii of curvature of the lens surfaces}$ \\ 
+
+However, this formula assumes a thin lens that is not submerged. Though this can be simplified: \\ 
+
+\begin{equation*}
+f = \frac{1}{(n-1)(\frac{1}{R_1}-\frac{1}{R_2})}
+\end{equation*}
+\\ \\
+Now combine the like terms inside the parentheses: \\ 
+
+\begin{equation*}
+    \frac{1}{R_1}-\frac{1}{R_2} = \frac{R_2-R_1}{R_1R_2}
+\end{equation*} \\ 
+
+Now substitute it back in: \\ 
+
+\begin{equation*}
+f = \frac{1}{(n-1)(\frac{R_2-R_1}{R_1R_2})}
+\end{equation*}\\ 
+
+Now we invert the denominator: (since dividing a fraction by a fraction is the same as multiplying with it's reciprocal.) \\ 
+
+\begin{equation*} 
+\boxed{f = \frac{R_1R_2}{(n-1)(R_2-R_1)}}
+\end{equation*}\\ 
+
+And here we have our explicit form. \\
+Additionally, there is a key distinction between convex lenses. One type is a biconvex lens, where it is bulging outwards on both sides, whereas a Plano convex bulges outward only on one side. A Plano convex is usually better due to less likelihood of spherical aberration (when oriented correctly) which can tend to be a problem for biconvex lenses. \\
+
+Now, applying the previous formula for a Plano convex lens. \\
+
+$n = 1.52$ \\
+$R_1 = +300 mm$ \\
+$R_2 = \infty$ Since a flat surface of curvature has an infinite radius. Substituting the values, we yield: 
+\begin{equation*}
+    f = \frac{R_1\infty}{(n-1)(\infty-R_1)} 
+\end{equation*} \\ 
+
+Which gives us: 
+\begin{equation*}
+    f = \frac{\infty}{\infty}
+\end{equation*} \\
+
+% I lowkey sounded like nigel
+...which is mathematically indeterminate. So we factor it. \\
+An algebra rule says that:
+
+\begin{equation*}
+    a - b = a(1 - \frac{b}{a}) 
+\end{equation*} \\ 
+
+Using that logic here:
+% istg cant latex make clean equations easier
+\begin{equation*}
+    R_2 - R_1 = R_2(1 - \frac{R_1}{R_2})
+\end{equation*} \\ 
+
+Now substituting this into the explicit lens-maker formula, it yields: \\ 
+
+% You cant spell studying without dying
+\begin{equation}
+    f = \frac{R_1R_2}{(n-1)R_2(1 - \frac{R_1}{R_2})}
+\end{equation} \\ 
+
+Now we cancel the $R_2$:\\ 
+
+\begin{equation*}
+    f = \frac{R_1}{(n-1)(1-\frac{R_1}{R_2})}
+\end{equation*} \\ 
+
+Now $\frac{R_1}{R_2}$ $\Rightarrow$ $\frac{300}{\infty} = 0$ $\Rightarrow$ $\frac{R_1}{R_2} = 0$ \\ 
+
+Now substituting this into the formula: \\ 
+
+% I feel bad for the reader
+\begin{equation*}
+    f = \frac{R_1}{(n-1)(1-0)} 
+\end{equation*} \\ 
+
+Further simplifying into:
+\begin{equation*}
+    f = \frac{R_1}{n-1}
+\end{equation*} \\ 
+
+Now that we have a comprehensible equation, let's substitute the values from earlier: \\ 
+
+\begin{equation*}
+   f = \frac{300}{1.52-1} \Rightarrow \frac{300}{0.52} 
+\end{equation*}
+\begin{equation*}
+   \boxed{ f \approx 576.9 \text{ mm}}
+\end{equation*} \\ 
+
+At the end, the Plano convex Keplerian telescope should look similar to: \\ 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{Keplerian-300x204.png}
+\end{figure}
+
+This ensures a wide field of view, comfort, and excellent for astronomy. Though the building bit is the engineer's problem. 
+
+\section*{References}
+Parrish, Mark. “How to Make Your Own Telescope.” BBC Sky at Night Magazine, 15 Mar. 2022, https://www.skyatnightmagazine.com/advice/make-a-small-refractor-telescope. \\ 
+
+Britannica Editors. "Keplerian telescope". Encyclopedia Britannica, 8 Mar. 2019, https://www.britannica.com/science/Keplerian-telescope. \\ 
+
+Blinder, Stephen M. “Lensmaker’s Equation.” Wolfram Demonstrations Project, 7 Mar. 2011, https://demonstrations.wolfram.com/LensmakersEquation/. 
+\end{document}
