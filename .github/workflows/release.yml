@@ -1,18 +1,18 @@
-name: Auto Versioning
+name: Auto Tagging
 on:
   push:
     branches:
       - main
 
 jobs:
-  release:
+  tag:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Important: gets the history to see prefixes
+          fetch-depth: 0
 
       - name: Calculate Next Version
         id: semver
@@ -22,14 +22,13 @@ jobs:
           branch: main
           patchList: patch, update, fix
           minorList: feature, feat
-          # If they forget a prefix, it defaults to a patch bump
           noVersionBumpBehavior: patch 
 
-      - name: Create GitHub Release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: ${{ steps.semver.outputs.next }}
-          name: Release ${{ steps.semver.outputs.next }}
-          body: |
-            Automated Release for commit: ${{ github.event.head_commit.message }}
-          token: ${{ github.token }}
+      - name: Create Git Tag
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          # This creates an annotated tag locally
+          git tag -a ${{ steps.semver.outputs.next }} -m "Auto-tag for commit: ${{ github.event.head_commit.message }}"
+          # This pushes ONLY the tag to the server
+          git push origin ${{ steps.semver.outputs.next }}
