@@ -10,3 +10,6 @@ emitted_wavelength_galaxy = (observed_wavelength_galaxy) / (redshift_galaxy + 1)
 rgb_val_galaxy = wlrgb.wavelength_to_rgb(emitted_wavelength_galaxy)
 
 print(f"The RGB value of the pixel in question should be {rgb_val_galaxy}")
+
+# WOW THIS IS SO COOL
+# shaboy20 MAKE IT WORK FOR FULL THING
