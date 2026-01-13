@@ -1,0 +1,35 @@
+name: Auto Versioning
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Important: gets the history to see prefixes
+
+      - name: Calculate Next Version
+        id: semver
+        uses: ietf-tools/semver-action@v1
+        with:
+          token: ${{ github.token }}
+          branch: main
+          patchList: patch, update, fix
+          minorList: feature, feat
+          # If they forget a prefix, it defaults to a patch bump
+          noVersionBumpBehavior: patch 
+
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.semver.outputs.next }}
+          name: Release ${{ steps.semver.outputs.next }}
+          body: |
+            Automated Release for commit: ${{ github.event.head_commit.message }}
+          token: ${{ github.token }}

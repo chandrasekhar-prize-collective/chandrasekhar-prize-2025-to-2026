@@ -1,0 +1,18 @@
+name: Commit Prefix Check
+
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Commit Message
+        uses: gsactions/commit-message-checker@v2
+        with:
+          # This is the "Bouncer's" rulebook:
+          pattern: '^(patch|feature|update): .*'
+          error: 'STOP! Your commit must start with "patch:", "feature:", or "update:" followed by a space.'
+          # This checks every commit in the push
+          checkAllCommits: 'true'
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
+          
