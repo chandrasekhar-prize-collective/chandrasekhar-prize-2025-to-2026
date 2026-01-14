@@ -21,6 +21,8 @@ jobs:
           pattern: '^(patch|feature|update): .*'
           error: 'STOP! Your commit must start with "patch:", "feature:", or "update:".'
           checkAllCommitMessages: 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Admin Force Merge
         run: |
