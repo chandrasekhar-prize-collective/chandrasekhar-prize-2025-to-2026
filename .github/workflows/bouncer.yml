@@ -34,4 +34,4 @@ jobs:
           gh pr merge "${{ github.event.pull_request.html_url }}" --auto --squash
         env:
           GH_REPO: ${{ github.repository }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ADMIN_PAT }}
