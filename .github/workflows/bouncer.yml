@@ -24,8 +24,7 @@ jobs:
 
       - name: Admin Force Merge
         run: |
-          # We use --admin to ignore the "Blocked" status 
-          # and --squash to keep the history clean.
-          gh pr merge "${{ github.event.pull-request.html_url }}" --admin --squash --delete-branch
+          # We removed --delete-branch to stop the "not on any branch" error
+          gh pr merge "${{ github.event.pull-request.html_url }}" --admin --squash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
