@@ -12,8 +12,11 @@ jobs:
       pull-requests: write
       statuses: write
     steps:
+
       - name: Checkout Code
-        uses: actions/checkout@v4 
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Check Commit Message
         uses: gsactions/commit-message-checker@v2
@@ -21,6 +24,7 @@ jobs:
           pattern: '^(patch|feature|update): .*'
           error: 'STOP! Your commit must start with "patch:", "feature:", or "update:".'
           checkAllCommitMessages: 'true'
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
