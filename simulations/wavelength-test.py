@@ -13,3 +13,4 @@ print(f"The RGB value of the pixel in question should be {rgb_val_galaxy}")
 
 # WOW THIS IS SO COOL
 # shaboy20 MAKE IT WORK FOR FULL THING
+# TEST COMMIT DISCORD ARE YOU ALIVE??
