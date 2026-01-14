@@ -25,6 +25,6 @@ jobs:
       - name: Admin Force Merge
         run: |
           # We removed --delete-branch to stop the "not on any branch" error
-          gh pr merge "${{ github.event.pull-request.html_url }}" --admin --squash
+          gh pr merge "${{ github.event.pull_request.number }}" --admin --squash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
