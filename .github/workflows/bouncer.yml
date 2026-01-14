@@ -1,18 +1,26 @@
 name: Commit Prefix Check
 
-on: [push, pull_request]
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Check Commit Message
         uses: gsactions/commit-message-checker@v2
         with:
-          # This is the "Bouncer's" rulebook:
           pattern: '^(patch|feature|update): .*'
-          error: 'STOP! Your commit must start with "patch:", "feature:", or "update:" followed by a space.'
-          # This checks every commit in the push
+          error: 'STOP! Your commit must start with "patch:", "feature:", or "update:".'
           checkAllCommits: 'true'
-          accessToken: ${{ secrets.GITHUB_TOKEN }}
-          
+
+      - name: Auto-merge if Bouncer passes
+        # This tells the robot to merge specifically when the checks finish
+        run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull-request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
