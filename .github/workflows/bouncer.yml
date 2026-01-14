@@ -22,7 +22,9 @@ jobs:
           checkAllCommits: 'true'
 
       - name: Auto-merge if Bouncer passes
-        run: gh pr merge --auto --squash "$PR_URL"
+        run: |
+          gh pr edit "$PR_URL" --title "${{ github.event.pull-request.title }}" --body "Bouncer approved. Automating merge..."
+          gh pr merge "$PR_URL" --auto --squash
         env:
           PR_URL: ${{ github.event.pull-request.html_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
