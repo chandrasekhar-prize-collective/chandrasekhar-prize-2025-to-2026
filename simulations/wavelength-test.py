@@ -12,4 +12,4 @@ rgb_val_galaxy = wlrgb.wavelength_to_rgb(emitted_wavelength_galaxy)
 print(f"The RGB value of the pixel in question should be {rgb_val_galaxy}")
 
 # TEST DISCORD PLS WORK
-# hey github its github here
+# hey github its github here work
