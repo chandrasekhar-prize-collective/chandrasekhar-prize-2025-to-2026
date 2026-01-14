@@ -26,4 +26,8 @@ jobs:
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_METHOD: "squash"
-          MERGE_LABELS: "" # This makes it merge everything that passes checks
+          MERGE_LABELS: ""          # <--- Keeping this empty means "Merge everything"
+          MERGE_FILTER_AUTHOR: ""   # <--- Ensures it doesn't ignore you
+          MERGE_FORKS: "false"
+          MERGE_RETRIES: "10"       # <--- Gives it more time
+          MERGE_RETRY_SLEEP: "10000"
