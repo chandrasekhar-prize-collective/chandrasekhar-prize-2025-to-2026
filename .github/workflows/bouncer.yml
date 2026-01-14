@@ -2,7 +2,7 @@ name: Commit Prefix Check
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, labeled] # Added labeled for manual retry
+    types: [opened, synchronize, reopened, labeled]
 
 jobs:
   check:
@@ -12,25 +12,21 @@ jobs:
       pull-requests: write
       statuses: write
     steps:
-
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
       - name: Check Commit Message
         uses: gsactions/commit-message-checker@v2
         with:
           pattern: '^(patch|feature|update): .*'
           error: 'STOP! Your commit must start with "patch:", "feature:", or "update:".'
-          checkAllCommitMessages: 'true'
+          checkAllCommitMessages: 'true' 
           accessToken: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Admin Force Merge
         run: |
-          # We removed --delete-branch to stop the "not on any branch" error
+          # The GH_REPO env var below fixes the "not on any branch" error
           gh pr merge "${{ github.event.pull_request.number }}" --admin --squash
         env:
+          GH_REPO: ${{ github.repository }}   # <--- THIS IS THE MISSING KEY!
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
