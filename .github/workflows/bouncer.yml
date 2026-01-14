@@ -11,6 +11,9 @@ jobs:
       contents: write
       pull-requests: write
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4 
+
       - name: Check Commit Message
         uses: gsactions/commit-message-checker@v2
         with:
@@ -19,7 +22,6 @@ jobs:
           checkAllCommits: 'true'
 
       - name: Auto-merge if Bouncer passes
-        # This tells the robot to merge specifically when the checks finish
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull-request.html_url }}
