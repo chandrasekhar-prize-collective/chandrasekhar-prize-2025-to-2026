@@ -22,11 +22,12 @@ jobs:
           error: 'STOP! Your commit must start with "patch:", "feature:", or "update:".'
           checkAllCommits: 'true'
 
-      - name: Force Merge as Admin
-        # We add a 5-second sleep to let GitHub register the 'Check' as passed
+      - name: Force Merge via API
         run: |
           sleep 5
-          gh pr merge "$PR_URL" --squash --admin --delete-branch
+          # This command tells the GitHub API to merge PR #NNN directly
+          gh api -X PUT /repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/merge \
+            -f merge_method='squash' \
+            -f commit_title='Robot-Merge: ${{ github.event.pull_request.title }}'
         env:
-          PR_URL: ${{ github.event.pull-request.html_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
