@@ -29,5 +29,5 @@ jobs:
           MERGE_LABELS: ""          # <--- Keeping this empty means "Merge everything"
           MERGE_FILTER_AUTHOR: ""   # <--- Ensures it doesn't ignore you
           MERGE_FORKS: "false"
-          MERGE_RETRIES: "10"       # <--- Gives it more time
+          MERGE_RETRIES: "10"       # <--- Gives it more timee
           MERGE_RETRY_SLEEP: "10000"
