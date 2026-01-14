@@ -22,12 +22,10 @@ jobs:
           error: 'STOP! Your commit must start with "patch:", "feature:", or "update:".'
           checkAllCommits: 'true'
 
-      - name: Enable Auto-Merge via API
+      - name: Admin Force Merge
         run: |
-          # This tells GitHub to queue the merge to happen the MOMENT the bouncer finishes
-          gh api -X PATCH /repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }} \
-            -f active_lock_reason=null
-          
-          gh pr merge "${{ github.event.pull_request.html_url }}" --auto --squash --admin
+          # We use --admin to ignore the "Blocked" status 
+          # and --squash to keep the history clean.
+          gh pr merge "${{ github.event.pull-request.html_url }}" --admin --squash --delete-branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
