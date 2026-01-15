@@ -27,6 +27,3 @@ For code, use that language's guidelines. For folders and filenames, use `kebab-
 ## Commit names
 Use the prefixes `patch: `, `feature: `, and `update: ` to allow for a smooth versioning experience. Patches are quick, small fixes, such as typos or code errors. A feature is a new thing added to the repo. An update is like a feature, except it means that the older updates are invalid. Use with caution, as the format is `vUpdate.Feature.Patch`. Also, make your commit names creative!
 USE PULL REQUESTS
-
-# Other
-This repository shall be made public after the competition is over.
