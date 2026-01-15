@@ -20,9 +20,12 @@ jobs:
         with:
           token: ${{ github.token }}
           branch: main
-          patchList: patch, update, fix
+          # Move 'update' to the majorList
+          majorList: update
+          # Keep others in minor and patch
           minorList: feature, feat
-          noVersionBumpBehavior: patch 
+          patchList: patch, fix
+          noVersionBumpBehavior: patch
 
       - name: Create Git Tag
         run: |
