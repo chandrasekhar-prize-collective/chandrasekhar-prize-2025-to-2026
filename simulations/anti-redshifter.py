@@ -1,12 +1,16 @@
 # HAHA THATS WHAT I CALL GLASS PANELS
-from PIL import Image
 import numpy as np
 import cv2
-import matplotlib.pyplot as plt
+import os
+import sys
 
 def full_galaxy_correction(img_path, out_path):
-    img = Image.open(img_path).convert("RGB")
-    arr = np.asarray(img).astype(np.float32)
+    img_bgr = cv2.imread(img_path)
+    if img_bgr is None:
+        raise ValueError("Could not open image. Check the path!")
+    
+# OpenCV loads in BGR, so we use cv2.cvtColor to get RGB
+    arr = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB).astype(np.float32)
 
  
     flat = arr.reshape(-1, 3)
@@ -19,7 +23,9 @@ def full_galaxy_correction(img_path, out_path):
     arr1 = arr1 / np.max(arr1) * 255.0
 
  
-    lab = cv2.cvtColor(arr1.astype(np.uint8), cv2.COLOR_RGB2LAB)
+    img_uint8 = np.clip(arr1, 0, 255).astype(np.uint8)
+    lab = cv2.cvtColor(img_uint8, cv2.COLOR_RGB2LAB)
+    
     L, A, B = lab[:,:,0].astype(np.float32), lab[:,:,1].astype(np.float32), lab[:,:,2].astype(np.float32)
 
     grad_L = np.sqrt(
@@ -53,26 +59,35 @@ def full_galaxy_correction(img_path, out_path):
     arr2[disk_mask] = 0.7 * arr2[disk_mask] + 0.3 * warm
 
     out = np.clip(arr2, 0, 255).astype(np.uint8)
-    Image.fromarray(out).save(out_path)
+    out_bgr = cv2.cvtColor(out, cv2.COLOR_RGB2BGR)
+    cv2.imwrite(out_path, out_bgr)
 
-    return img, out
-
-input_path = "galaxy_image.png"
-output_path = "galaxy_corrected.png"
-
-orig, corrected = full_galaxy_correction(input_path, output_path)
+    return img_bgr, out
 
 
-plt.figure(figsize=(10,4))
-plt.subplot(1,2,1)
-plt.title("Original")
-plt.imshow(orig)
-plt.axis("off")
+if __name__ == "__main__":
+    
+    print("Anti-Redshifter Tool")
+    print("Paste the path to your image and press Enter.")
+    sys.stdout.flush() 
+    
+    input_path = input("Path: ").strip().replace("'", "").replace('"', '')
 
-plt.subplot(1,2,2)
-plt.title("Processed")
-plt.imshow(corrected)
-plt.axis("off")
+    if not os.path.exists(input_path):
+        print(f"Error: Could not find file at {input_path}")
+        input("Press Enter to close...")
+        sys.exit()
 
-plt.tight_layout()
-plt.show()
+    
+    file_name, file_ext = os.path.splitext(input_path)
+    output_path = file_name + "-antiredshifted.png"
+
+    print("Processing... please wait...")
+    
+    try:
+        orig, corrected = full_galaxy_correction(input_path, output_path)
+        print(f"SUCCESS! Saved to: {output_path}")
+    except Exception as e:
+        print(f"FAILED with error: {e}")
+
+    input("\nProcessing complete. Press Enter to exit.")
