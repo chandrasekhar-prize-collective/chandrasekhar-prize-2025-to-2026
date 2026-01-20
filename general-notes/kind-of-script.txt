@@ -1,0 +1,15 @@
+--- KIND OF SCRIPT FOR PROTOTYPE PRESENTATION 2026-01-22 ---
+
+malhan: introduction about the whole idea and project
+
+jain: talks about ideation process and why we built this and talks about physics
+
+shokeen: talks about the maths behind it and the physics
+
+bodapati: talks about opencv and python integration; mechanical integration and operation — cover the python stuff, how the code works, raspberry pi integration
+
+jain: reference citations lol idk something like einstein, hubble, all those good ppl also cite raspberry pi datasheet
+
+shokeen: explain model position in development
+
+malhan: concludes with what we plan to do further
