@@ -67,28 +67,33 @@ def full_galaxy_correction(img_path, out_path):
 
 
 if __name__ == "__main__":
-    
-    print("Anti-Redshifter Tool")
-    print("Paste the path to your image and press Enter.")
-    sys.stdout.flush() 
-    
-    input_path = input("Path: ").strip().replace("'", "").replace('"', '')
+    print("Use sample image? (nahhh the fact that you cant get your own images -_-)")
+    isSampleImage = input("yes or no: ")
 
-    if not os.path.exists(input_path):
-        print(f"Error: Could not find file at {input_path}")
-        input("Press Enter to close...")
-        sys.exit()
+    if isSampleImage == "no":
+        print("Anti-Redshifter Tool")
+        print("Paste the path to your astronomical image and press Enter.")
+        sys.stdout.flush() 
+    
+        input_path = input("Path: ").strip().replace("'", "").replace('"', '')
+
+        if not os.path.exists(input_path):
+            print(f"Error: Could not find file at {input_path}")
+            input("Press Enter to close...")
+            sys.exit()
 
     
-    file_name, file_ext = os.path.splitext(input_path)
-    output_path = file_name + "-antiredshifted.png"
+        file_name, file_ext = os.path.splitext(input_path)
+        output_path = file_name + "-antiredshifted.png"
 
-    print("Processing... please wait...")
+        print("Processing... please wait...")
     
-    try:
-        orig, corrected = full_galaxy_correction(input_path, output_path)
-        print(f"SUCCESS! Saved to: {output_path}")
-    except Exception as e:
-        print(f"FAILED with error: {e}")
+        try:
+            orig, corrected = full_galaxy_correction(input_path, output_path)
+            print(f"SUCCESS! Saved to: {output_path}")
+        except Exception as eRoR:
+            print(f"FAILED with error: {eRoR}")
+    else:
+        inputtedImage, outputtedImage = full_galaxy_correction("simulations/galaxy-image.png", "simulations/galaxy-image-antiredshifted.png")
 
     input("\nProcessing complete. Press Enter to exit.")
