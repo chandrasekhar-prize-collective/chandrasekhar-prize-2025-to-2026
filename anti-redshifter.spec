@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['/Users/jagdeepshokeen/Documents/chandrasekhar-prize-2025-to-2026/simulations/anti-redshifter.py'],
+    ['simulations/anti-redshifter.py'],
     pathex=[],
     binaries=[],
     datas=[],
