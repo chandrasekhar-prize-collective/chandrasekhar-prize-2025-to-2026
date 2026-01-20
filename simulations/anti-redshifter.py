@@ -94,6 +94,6 @@ if __name__ == "__main__":
         except Exception as eRoR:
             print(f"FAILED with error: {eRoR}")
     else:
-        inputtedImage, outputtedImage = full_galaxy_correction("simulations/galaxy-image.png", "simulations/galaxy-image-antiredshifted.png")
+        inputtedImage, outputtedImage = full_galaxy_correction(".venv/galaxy-image.png", ".venv/galaxy-image-antiredshifted.png")
 
     input("\nProcessing complete. Press Enter to exit.")
