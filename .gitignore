@@ -6,6 +6,8 @@
 *.synctex.gz
 *.toc
 *.out
+*.nav
+*.snm
 
 # macOS rubbish
 .DS_Store
