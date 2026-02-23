@@ -3,13 +3,13 @@
 \usepackage{amsmath}
 \usepackage{microtype}
 
-\title{Problem Statement}
+\title{Printable cutouts}
 \date{2026--02--23}
-\author{Ahaan Shokeen}
+\author{S. Bodapati \and D. Jain \and S. Malhan \and A. Shokeen}
 
 \begin{document}
 \maketitle
-
+\section{Problem statement}
 Redshift and blueshift are phenomena wherein light from distant objects is ``stretched out''; that is, the observed wavelength increases or decreases relative to the emitted wavelength. This affects the light received on Earth, and can be defined by the following equation:
 \begin{align}
     z &= \frac{v}{c\sqrt{1 - \frac{v^2}{c^2}}}
@@ -17,5 +17,22 @@ Redshift and blueshift are phenomena wherein light from distant objects is ``str
 wherein \(z\) is the redshift (If \(z = 0\), then there is no redshift or blueshift. If \(z < 0\), it is blueshift. And if \(z > 0\), then there is redshift.), \(v\) is the recessional velocity, in \unit{\metre\per\second}, and \(c\) is the speed of light in a vacuum, approximately \qty{299 792 458}{\metre\per\second}.
 
 This is a problem for cosmologists and spectrographers. Cosmologists need accurate images to study the universe, and whilst tools exist to remedy this, they are nonetheless very slow and inefficient. Spectrographers --- especially extraterrestrial spectrographers --- rely on spectral lines to determine the elemental composition of planets' atmospheres, stars' atmospheres, and more. Our product aims to enhance our interpretation of redshift (Not stop it, because that would require stopping the expansion of the universe, which is beyond our budget.\textsuperscript{[citation needed]}) by accounting for the redshift digitally.
+
+\section{Hypothesis}
+If there is an increase in the distance to the object in question, then there shall be an increase in its recessional velocity, because the Hubble-Lemaître law states, mathematically:
+\begin{align}
+    v &= H_0 \cdot d
+\end{align}
+wherein \(H_0\) is the Hubble constant: \qty{2.23e-18}{\per\second}, \(d\) is the distance, and \(v\) is the recessional velocity. Thanks to this, we can say that \(v \propto d\).
+
+\section{Materials}
+\begin{itemize}
+    \item ASUS Vivobook
+    \item Python version \(\pi\)
+    \item Einstein's and Hubble's research
+    \item VS Code
+    \item Basic\TeX
+    \item \LaTeX{} packages: \verb|siunitx, csquotes, microtype, amsmath|.
+\end{itemize}
 
 \end{document}
