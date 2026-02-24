@@ -11,11 +11,11 @@ else:
     img = cv2.imread(f"images/{inputImg}").astype(np.float32)  # type: ignore
 brightnessLevel = int(
     input(
-        "How much do you want to increase the brightness for the thresholding? (Enter a number, e.g., 10 for 10x brightness) Ideally experiment with all , the more brighter the more visible dim objects , but sometimes high brightness can glitch out in thresholding step if you see glitchy black spots try reducing brightness: "
+        "How much do you want to increase the brightness for the thresholding? (Enter a number, e.g., 10 for 10x brightness) Ideally, experiment with all values ——— the brighter, the more visible dim objects are ——— but sometimes high brightness can glitch out in the thresholding step. If you see glitchy black spots try reducing brightness: "
     )
 )
 print(
-    "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+    "————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————"
 )
 b, g, r = cv2.split(img)
 bg_b = cv2.GaussianBlur(b, (0, 0), 80)
