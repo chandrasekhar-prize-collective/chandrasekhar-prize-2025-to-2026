@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{siunitx}
+\usepackage{csquotes}
+\usepackage{amsmath}  
+\sisetup{exponent-product=\cdot}                 
+
+\begin{document}
+
+\begin{center}
+{\Huge \textbf{SPECIAL RELATIVITY}}
+\end{center}
+
+\section{The two fundamental postulates}
+\begin{enumerate}
+    \item Physics is the same everywhere, and everything takes place in an intertial frame of reference.
+    \item The speed of light, \(c\), is \emph{always} \qty{299 792 458}{\metre\per\second}, and is invariant. It does not change depending upon the observer's speed.
+\end{enumerate}
+This means that for a train moving at \qty{20}{\metre\per\second} with a person on it shining an electric torch, to a stationary observer, the speed of light would not be \qty{299 792 478}{\metre\per\second}. This conflicts with classical mechanics (CM), because in CM, velocities just add up.
+
+\section{Impacts of this}
+If \(c\) is to stay the same everywhere, then for the equation
+\begin{align}
+    c &= \frac{\ell}{t}
+\end{align}
+wherein \(\ell\) is the distance and \(t\) is the time taken to stay true, either distance or time must change. This is wherein length contraction and time dilation come in:
+\begin{enumerate}
+    \item Length contraction: For an object with rest-frame length \(L_0\) in motion, it shall shrink along the axis of motion. The measured length is denoted by \(L\):
+    \begin{align}
+        L &= \frac{L_0}{\gamma} = L_0\gamma^{-1} = L_0\sqrt{1 - \frac{v^2}{c^2}}
+    \end{align}
+    So for an object with rest-frame length \qty{1}{\kilo\metre} moving at \qty{269 813 212.2}{\metre\per\second} (\(0.9c\)), the measured length would be:
+    \begin{align}
+        L &= \qty{1e3}{\metre}\sqrt{1 - \frac{(\qty{269 813 212.2}{\metre\per\second})^2}{(\qty{299 792 458}{\metre\per\second})^2}} \approx \qty{435.89}{\metre}
+    \end{align}
+    \item Time dilation: Time is not a constant. It changes relative to an object's velocity,\footnote{This is a major theme of the 2014 film \textit{Interstellar}.} and can be defined by the following equation, wherein \(\Delta t\) denotes the change in time:
+    \begin{align}
+        \Delta t &= \gamma\Delta t_0 = 
+    \end{align}
+\end{enumerate}
+
+\end{document}
