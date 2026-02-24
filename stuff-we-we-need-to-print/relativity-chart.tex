@@ -1,8 +1,10 @@
-\documentclass[12pt]{article}
-\usepackage[margin=0.5in]{geometry}
+\documentclass[10pt]{article}
+\usepackage[margin=12mm]{geometry}
 \usepackage{siunitx}
+\usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage{amsmath}  
+\usepackage{microtype}
 \sisetup{exponent-product=\cdot}                 
 
 \begin{document}
@@ -10,10 +12,11 @@
 \begin{center}
 {\Huge \textbf{SPECIAL RELATIVITY}}
 \end{center}
+\nocite{*}
 
 \section{The two fundamental postulates}
 \begin{enumerate}
-    \item Physics is the same everywhere, and everything takes place in an intertial frame of reference.
+    \item The laws of physics are the same everywhere, and everything takes place in an inertial frame of reference.
     \item The speed of light, \(c\), is \emph{always} \qty{299 792 458}{\metre\per\second}, and is invariant. It does not change depending upon the observer's speed.
 \end{enumerate}
 This means that for a train moving at \qty{20}{\metre\per\second} with a person on it shining an electric torch, to a stationary observer, the speed of light would not be \qty{299 792 478}{\metre\per\second}. This conflicts with classical mechanics (CM), because in CM, velocities just add up.
@@ -21,7 +24,7 @@ This means that for a train moving at \qty{20}{\metre\per\second} with a person 
 \section{Impacts of this}
 If \(c\) is to stay the same everywhere, then for the equation
 \begin{align}
-    c &= \frac{\ell}{t}
+    \ell &= ct
 \end{align}
 wherein \(\ell\) is the distance and \(t\) is the time taken to stay true, either distance or time must change. This is wherein length contraction and time dilation come in:
 \begin{enumerate}
@@ -29,14 +32,58 @@ wherein \(\ell\) is the distance and \(t\) is the time taken to stay true, eithe
     \begin{align}
         L &= \frac{L_0}{\gamma} = L_0\gamma^{-1} = L_0\sqrt{1 - \frac{v^2}{c^2}}
     \end{align}
-    So for an object with rest-frame length \qty{1}{\kilo\metre} moving at \qty{269 813 212.2}{\metre\per\second} (\(0.9c\)), the measured length would be:
+    So for an object with rest-frame length \qty{1}{\kilo\metre} moving at \qty{269 813 212.2}{\metre\per\second} (\(0.9c\)) relative to a static observer, the measured length would be:
     \begin{align}
         L &= \qty{1e3}{\metre}\sqrt{1 - \frac{(\qty{269 813 212.2}{\metre\per\second})^2}{(\qty{299 792 458}{\metre\per\second})^2}} \approx \qty{435.89}{\metre}
     \end{align}
-    \item Time dilation: Time is not a constant. It changes relative to an object's velocity,\footnote{This is a major theme of the 2014 film \textit{Interstellar}.} and can be defined by the following equation, wherein \(\Delta t\) denotes the change in time:
+    \item Time dilation: Time is not a constant. It changes relative to an object's velocity:\footnote{This is a major theme in the 2014 film \textit{Interstellar}.} a clock moving relative to an observer will experience time the same, but the observer's perception of the mover's time shall be longer and can be defined by the following equation, wherein \(\Delta t\) denotes the change in time:
     \begin{align}
-        \Delta t &= \gamma\Delta t_0 = 
+        \Delta t &= \gamma\Delta t_0 = \frac{\Delta t_0}{\sqrt{1 - \frac{v^2}{c^2}}}
+    \end{align}
+    So for an object moving at \(0.9c\) again, \qty{1}{\second} on that object relative to the observer would be:
+    \begin{align}
+        \Delta t &= \frac{\qty{1}{\second}}{\sqrt{1 - \frac{(\qty{269 813 212.2}{\metre\per\second})^2}{(\qty{299 792 458}{\metre\per\second})^2}}} \approx \qty{2.29}{\second}
     \end{align}
 \end{enumerate}
+
+\section{Lorentz transformations}
+
+Now that we are in this new type of physics, we cannot use the Galilean tranformations to translate one set of coordinates to another moving at a velocity \(v\). To keep \(c\) constant, we use:
+\begin{align}
+    x' &= \gamma(x - vt)\\
+    t' &= \gamma\left(t - \frac{vx}{c^2}\right)
+\end{align}
+These make sure that \(c\) stays constant, and also show that simultaneous events are not really simultaneous; it depends upon the reference frames.
+
+\newpage
+
+\begin{center}
+{\Huge \textbf{GENERAL RELATIVITY}}
+\end{center}
+
+\section{The equivalence principle}
+
+The foundation of general relativity is the fact that there is no difference between gravity and acceleration. That is to say, if a \qty{10}{\kilogram} object is exposed to a gravitational acceleration of \qty{10}{\metre\per\second\squared}, its weight is the same as if it were accelerated another way, which would be \qty{100}{\newton}.
+
+Hence, if acceleration curves light, then gravity must curve light as well. However, if light always takes the shortest path, then the shortest path has to be the curved path, implying space is curved.
+
+\section{Space-time}
+
+In general relativity, space and time become a 4-dimensional manifold\footnote{Essentially, a shape wherein it is locally flat.}. Whilst special relativity is \enquote{flat}, general relativity is a flexible manifold. The physicist John Wheeler said \enquote{Space-time tells matter how to move; matter tells space-time how to curve}.
+
+The Einstein field equations are normally very complicated, so a condensed form is this:
+\begin{align}
+    G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}
+\end{align}
+Wherein \(G_{\mu\nu}\) is the curvature of space-time, and \(T_{\mu\nu}\) is the energy or mass present. This, \emph{very} simplified, means \enquote{curvature = energy-momentum density}.
+
+\section{Gravitational time dilation}
+
+Just like how moving very fast causes time dilation, being in the presence of a large mass also causes time dilation. This may not seem significant, but GPS satellites have to correct for this because clocks on Earth are ticking slower than the satellites' internal clocks, and without correction, they would be off by kilometres even in a day.
+
+
+\bibliographystyle{plain}
+\bibliography{relativity-chart-references}
+
 
 \end{document}
