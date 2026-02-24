@@ -1,14 +1,17 @@
 import cv2
 import numpy as np
+from PIL import Image
 
 inputImg = input(
     "Enter the name of the image you want to process (make sure it's in the same directory as this script, e.g., img.png): "
 )
-if inputImg == "":
+if not inputImg:
     print("No image name provided.")
+    cv2.waitKey(0)
     exit()
 else:
-    img = cv2.imread(f"images/{inputImg}").astype(np.float32)  # type: ignore
+    pil_img = Image.open(f"simulations/images/{inputImg}").convert("RGB")
+    img = np.array(pil_img, dtype=np.float32)
 brightnessLevel = int(
     input(
         "How much do you want to increase the brightness for the thresholding? (Enter a number, e.g., 10 for 10x brightness) Ideally, experiment with all values ——— the brighter, the more visible dim objects are ——— but sometimes high brightness can glitch out in the thresholding step. If you see glitchy black spots try reducing brightness: "
