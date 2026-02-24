@@ -16,30 +16,31 @@
 \section{Problem statement}
 Redshift and blueshift are phenomena wherein light from distant objects is ``stretched out''; that is, the observed wavelength increases or decreases relative to the emitted wavelength. This affects the light received on Earth, and can be defined by the following equation:
 \begin{align}
-    z &= \frac{v}{c\sqrt{1 - \frac{v^2}{c^2}}}
+    z &= \frac{v + c}{c\sqrt{1 - \frac{v^2}{c^2}}} - 2
 \end{align}
 wherein \(z\) is the redshift (If \(z = 0\), then there is no redshift or blueshift. If \(z < 0\), it is blueshift. And if \(z > 0\), then there is redshift.), \(v\) is the recessional velocity, in \unit{\metre\per\second}, and \(c\) is the speed of light in a vacuum, approximately \qty{299 792 458}{\metre\per\second}.
 
 This is a problem for cosmologists and spectrographers. Cosmologists need accurate images to study the universe, and whilst tools exist to remedy this, they are nonetheless very slow and inefficient. Spectrographers --- especially extraterrestrial spectrographers --- rely on spectral lines to determine the elemental composition of planets' atmospheres, stars' atmospheres, and more. Our product aims to enhance our interpretation of redshift (Not stop it, because that would require stopping the expansion of the universe, which is beyond our budget.\textsuperscript{[citation needed]}) by accounting for the redshift digitally.
 
 \section{Hypothesis}
-If there is an increase in the distance to the object in question, then there shall be an increase in its recessional velocity, because the Hubble-Lemaître law states, mathematically:
+{\Large If there is an increase in the distance to the object in question, then there shall be an increase in its recessional velocity, because the Hubble-Lemaître law states, mathematically:
 \begin{align}
     v &= H_0 \cdot d
 \end{align}
-wherein \(H_0\) is the Hubble constant: \qty{2.23e-18}{\per\second}, \(d\) is the distance, and \(v\) is the recessional velocity. Thanks to this, we can say that \(v \propto d\).
+wherein \(H_0\) is the Hubble constant: \qty{2.23e-18}{\per\second}, \(d\) is the distance, and \(v\) is the recessional velocity. Thanks to this, we can say that \(v \propto d\).}
 
 \newpage
 
 \section{Materials}
-\begin{itemize}
+
+{ \Large \begin{itemize}
     \item ASUS Vivobook
     \item Python version \(\pi\)
     \item Einstein's and Hubble's research
     \item VS Code
     \item Basic\TeX
     \item \LaTeX{} packages: \verb|siunitx, csquotes, microtype, amsmath|.
-\end{itemize}
+\end{itemize}}
 
 \newpage
 
@@ -47,7 +48,7 @@ wherein \(H_0\) is the Hubble constant: \qty{2.23e-18}{\per\second}, \(d\) is th
 \usetikzlibrary{shapes.geometric, arrows}
 
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black]
-\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, text width=4cm, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, text width=10cm, draw=black]
 \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black]
 \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black]
 \tikzstyle{arrow} = [thick,->,>=stealth]
@@ -108,5 +109,16 @@ wherein \(H_0\) is the Hubble constant: \qty{2.23e-18}{\per\second}, \(d\) is th
 \draw [arrow] (pro1) -- (dec1);
 \end{tikzpicture}
 \end{center}
+
+\section{Big question}
+How can we effectively use current technology to improve cosmology and spectrography by addressing the problem of cosmological redshift and blueshift digitally using well-defined scientific principles such as special and general relativity, the Hubble-Lemaître law (\(v = H_0 \cdot d\)), and optics?
+
+\section{Procedure}
+We began by trying to use formulae to anti-redshift a wavelength based on the distance and observed wavelength:
+\begin{align}
+    v &= H_0 \cdot d \\
+    z &= \frac{v + c}{c\sqrt{1 - \frac{v^2}{c^2}}} - 2\\
+    \lambda_{\text{obs}}
+\end{align}
 
 \end{document}
